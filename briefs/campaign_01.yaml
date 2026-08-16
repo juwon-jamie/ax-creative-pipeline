@@ -1,0 +1,25 @@
+brief:
+  id: campaign_01
+  brand_id: brand_zero
+  objective: show serum texture and product clarity in three short-form clips
+  audience: skincare-curious adults
+  platform: vertical short-form video
+  scenes:
+    - id: texture_drop
+      subject: ampoule drop on glass surface
+      motion: slow macro slide with visible viscosity
+      camera: macro close-up, shallow depth
+      start_state: drop suspended above surface
+      end_state: drop spreads into reflective film
+    - id: bottle_turn
+      subject: unbranded glass ampoule bottle
+      motion: slow turn with highlight sweep
+      camera: product close-up
+      start_state: bottle facing three-quarter left
+      end_state: bottle facing three-quarter right
+    - id: skin_light
+      subject: abstract skin texture and light
+      motion: soft light sweep across texture
+      camera: extreme close-up
+      start_state: matte texture
+      end_state: hydrated reflective texture

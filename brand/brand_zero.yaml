@@ -1,0 +1,33 @@
+brand:
+  id: brand_zero
+  name: Brand Zero
+  category: skincare_ampoule
+  declaration: fictional brand unrelated to any real company or product
+
+visual_identity:
+  wordmark: BRAND ZERO
+  palette:
+    primary: "#F4F7F2"
+    secondary: "#1B1D1A"
+    accent: "#8FB8A8"
+  texture_keywords:
+    - clear glass
+    - serum viscosity
+    - skin texture close-up
+
+campaign_goal: create three five-second short-form cuts that make texture visible
+
+constraints:
+  forbidden_claims:
+    - medical efficacy
+    - guaranteed treatment outcome
+    - before-after clinical claim
+  forbidden_visuals:
+    - real logo
+    - real package silhouette
+    - identifiable person
+
+deliverables:
+  aspect_ratio: "9:16"
+  duration_seconds: 5
+  resolution: "1080x1920"
