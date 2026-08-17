@@ -1,0 +1,3 @@
+{"clip_id": "clip_texture_01", "fail_codes": [], "p7_reason": "", "pass_fail_codes": [], "usable": true, "verdict": "USABLE"}
+{"clip_id": "clip_bottle_01", "fail_codes": [], "p7_reason": "insufficient text safe area", "pass_fail_codes": ["P6"], "usable": false, "verdict": "NOT_USABLE"}
+{"clip_id": "clip_skin_01", "fail_codes": ["F6"], "p7_reason": "brand cue risk after bypassing gate", "pass_fail_codes": [], "usable": false, "verdict": "NOT_USABLE"}

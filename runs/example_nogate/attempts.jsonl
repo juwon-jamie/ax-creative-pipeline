@@ -1,0 +1,1 @@
+{"action": "remove_brand_risk", "asset_id": "clip_skin_01", "attempt_no": 1, "code": "F6", "max_retries": 1, "prompt_adjustment": "Remove real brand cues, claims, readable labels, and logo-like marks.", "stage": "judge", "status": "queued"}

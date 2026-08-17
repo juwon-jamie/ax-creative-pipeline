@@ -1,0 +1,19 @@
+http_generic:
+  image:
+    payload:
+      prompt: prompt
+      reference_images: reference_images
+    response:
+      url: output.url
+      base64: output.base64
+      filename: output.filename
+    default_extension: .png
+  video:
+    payload:
+      image_path: image_path
+      motion_prompt: motion_prompt
+    response:
+      url: output.url
+      base64: output.base64
+      filename: output.filename
+    default_extension: .mp4

@@ -79,11 +79,15 @@ def build_plan(brand_path: Path, brief_path: Path, output_path: Path) -> Path:
                 f"scene {scene['id']} contains forbidden terms: {joined_hits}"
             )
 
+        # Learning-loop fix (run demo01, 2026-08-17): putting "Start state ... End state ..."
+        # into the *image* prompt made the image model render 3-panel storyboards, which
+        # are not video-ready. The image prompt now describes ONE frame (the start state)
+        # and says so explicitly; the end state lives only in the motion (video) prompt.
         image_prompt = (
             f"Fictional unbranded skincare ampoule scene. Subject: {scene['subject']}. "
-            f"Motion cue: {scene['motion']}. Camera: {scene['camera']}. "
-            f"Start state: {scene['start_state']}. End state: {scene['end_state']}. "
-            "No real logo, no real package silhouette, "
+            f"Camera: {scene['camera']}. Frame shows: {scene['start_state']}. "
+            "Single continuous frame, one moment in time. No panels, no collage, "
+            "no storyboard, no split screen. No real logo, no real package silhouette, "
             "no medical efficacy claim."
         )
         motion_prompt = (

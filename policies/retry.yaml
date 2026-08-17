@@ -1,0 +1,33 @@
+defaults:
+  max_retries: 1
+  action: review_prompt
+  prompt_adjustment: "Review {asset_id} for {code}: {reason}"
+codes:
+  F1:
+    max_retries: 2
+    action: simplify_shape
+    prompt_adjustment: "Use a simpler silhouette and remove unstable geometry."
+  F2:
+    max_retries: 2
+    action: lock_identity
+    prompt_adjustment: "Keep the same object identity across every frame."
+  F3:
+    max_retries: 1
+    action: stabilize_light
+    prompt_adjustment: "Reduce flicker by using stable lighting and background."
+  F4:
+    max_retries: 1
+    action: fix_physics
+    prompt_adjustment: "Use physically plausible gravity, shadow, and fluid motion."
+  F5:
+    max_retries: 1
+    action: strengthen_motion
+    prompt_adjustment: "Increase visible start-to-end motion while keeping the subject clear."
+  F6:
+    max_retries: 1
+    action: remove_brand_risk
+    prompt_adjustment: "Remove real brand cues, claims, readable labels, and logo-like marks."
+  F7:
+    max_retries: 1
+    action: rerender_spec
+    prompt_adjustment: "Rerender to the requested duration, aspect ratio, and clean output spec."

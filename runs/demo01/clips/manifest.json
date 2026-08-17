@@ -1,0 +1,34 @@
+{
+  "clips": [
+    {
+      "file": "clip_texture_drop_01.mp4",
+      "clip_id": "clip_01",
+      "image_id": "img_texture_drop_02",
+      "scene_id": "texture_drop",
+      "duration_s": 5,
+      "aspect_ratio": "9:16",
+      "resolution": "720p",
+      "generator_job": "4acaa431-43e5-4158-a23c-3ccc604fa004"
+    },
+    {
+      "file": "clip_bottle_turn_02.mp4",
+      "clip_id": "clip_02",
+      "image_id": "img_bottle_turn_01",
+      "scene_id": "bottle_turn",
+      "duration_s": 5,
+      "aspect_ratio": "9:16",
+      "resolution": "720p",
+      "generator_job": "ca352458-84c4-49ea-b01e-fd80470be88f"
+    },
+    {
+      "file": "clip_bottle_turn_03.mp4",
+      "clip_id": "clip_03",
+      "image_id": "img_bottle_turn_02",
+      "scene_id": "bottle_turn",
+      "duration_s": 5,
+      "aspect_ratio": "9:16",
+      "resolution": "720p",
+      "generator_job": "e0cc63e9-13a3-4627-9f60-c5cfea15e512"
+    }
+  ]
+}

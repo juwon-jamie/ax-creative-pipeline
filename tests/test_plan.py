@@ -89,3 +89,18 @@ brief:
 
     with pytest.raises(ValueError, match="forbidden terms"):
         build_plan(brand_path, brief_path, output_path)
+
+
+def test_image_prompt_is_single_frame_without_end_state():
+    """Regression (demo01): end-state wording in the image prompt produced storyboards."""
+    with TemporaryDirectory(dir=Path.cwd()) as raw_tmp:
+        out = Path(raw_tmp) / "plan.json"
+        build_plan(Path("brand/brand_zero.yaml"), Path("briefs/campaign_01.yaml"), out)
+        plan = json.loads(out.read_text(encoding="utf-8"))
+        scenes = plan.get("scenes") or plan.get("scene_cards") or []
+        assert scenes
+        for scene in scenes:
+            prompt = scene["image_prompt"]
+            assert "End state" not in prompt
+            assert "Single continuous frame" in prompt
+            assert "no storyboard" in prompt

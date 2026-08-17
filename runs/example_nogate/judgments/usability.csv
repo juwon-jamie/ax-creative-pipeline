@@ -1,0 +1,4 @@
+clip_id,verdict,fail_codes,pass_fail_codes,p7_reason
+clip_texture_01,USABLE,,,
+clip_bottle_01,NOT_USABLE,,P6,insufficient text safe area
+clip_skin_01,NOT_USABLE,F6,,brand cue risk after bypassing gate

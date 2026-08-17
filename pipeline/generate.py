@@ -76,9 +76,10 @@ def generate_images(
     image_model: ImageModel,
     output_dir: Path,
 ) -> list[Path]:
-    """Generate image candidates and return their paths."""
+    """Generate image candidates, write a manifest, and return their paths."""
     output_dir.mkdir(parents=True, exist_ok=True)
     generated: list[Path] = []
+    manifest_entries: list[dict[str, object]] = []
     for scene in _load_plan_scenes(plan_path):
         paths = image_model.generate(
             str(scene["image_prompt"]),
@@ -86,4 +87,14 @@ def generate_images(
             output_dir=output_dir,
         )
         generated.extend(paths)
+        for path in paths:
+            manifest_entries.append(
+                {
+                    "image_id": path.stem,
+                    "scene_id": scene["scene_id"],
+                    "file": path.name,
+                    "prompt_hash": scene["image_prompt_hash"],
+                }
+            )
+    write_json(output_dir / "manifest.json", {"images": manifest_entries})
     return generated

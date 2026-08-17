@@ -1,0 +1,11 @@
+{
+  "aspect_ratio": "9:16",
+  "duration_seconds": 5,
+  "image_id": "img_texture_drop_02",
+  "motion_prompt": "Create a 5 second vertical clip: slow macro slide with visible viscosity. Start with drop suspended above surface and end with drop spreads into reflective film.",
+  "prompt_hash": "98451228f8f66ff3",
+  "request_type": "video",
+  "scene_id": "texture_drop",
+  "source_image": "texture_drop_02.png",
+  "status": "pending_external_render"
+}

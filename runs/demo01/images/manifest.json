@@ -1,0 +1,46 @@
+{
+  "images": [
+    {
+      "file": "texture_drop_01.png",
+      "image_id": "img_texture_drop_01",
+      "prompt_hash": "e26983a85620a796",
+      "scene_id": "texture_drop",
+      "generator_job": "83ff6df3-5d28-4ecb-ae7e-a3b27c25c84b"
+    },
+    {
+      "file": "texture_drop_02.png",
+      "image_id": "img_texture_drop_02",
+      "prompt_hash": "e26983a85620a796",
+      "scene_id": "texture_drop",
+      "generator_job": "5a6cae90-2f18-4797-bd4a-a86f50c589a0"
+    },
+    {
+      "file": "bottle_turn_01.png",
+      "image_id": "img_bottle_turn_01",
+      "prompt_hash": "7d62897044624c6a",
+      "scene_id": "bottle_turn",
+      "generator_job": "921b095d-e210-4523-aa5f-603693bba4c6"
+    },
+    {
+      "file": "bottle_turn_02.png",
+      "image_id": "img_bottle_turn_02",
+      "prompt_hash": "7d62897044624c6a",
+      "scene_id": "bottle_turn",
+      "generator_job": "eed13bbb-3f0f-4f0e-bfae-64b35b47cf37"
+    },
+    {
+      "file": "skin_light_01.png",
+      "image_id": "img_skin_light_01",
+      "prompt_hash": "3a14c426becdc214",
+      "scene_id": "skin_light",
+      "generator_job": "e9c5b65b-bc93-46ca-b78d-c48f5225594a"
+    },
+    {
+      "file": "skin_light_02.png",
+      "image_id": "img_skin_light_02",
+      "prompt_hash": "3a14c426becdc214",
+      "scene_id": "skin_light",
+      "generator_job": "39f3be0f-a34c-4c84-9c87-8ff21e2668dd"
+    }
+  ]
+}

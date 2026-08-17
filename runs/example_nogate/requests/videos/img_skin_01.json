@@ -1,0 +1,11 @@
+{
+  "aspect_ratio": "9:16",
+  "duration_seconds": 5,
+  "image_id": "img_skin_01",
+  "motion_prompt": "Create a 5 second vertical clip: soft light sweep across texture. Start with matte texture and end with hydrated reflective texture.",
+  "prompt_hash": "34b6548a2bbec67f",
+  "request_type": "video",
+  "scene_id": "skin_light",
+  "source_image": "skin_light_01.png",
+  "status": "pending_external_render"
+}

@@ -6,3 +6,9 @@ __pycache__/
 runs/*
 !runs/example/
 !runs/example/**
+!runs/example_nogate/
+!runs/example_nogate/**
+!runs/demo01/
+!runs/demo01/**
+runs/demo01/images/*.png
+runs/demo01/clips/*.mp4

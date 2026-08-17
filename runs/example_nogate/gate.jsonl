@@ -1,0 +1,3 @@
+{"file": "texture_drop_01.png", "image_id": "img_texture_01", "manual_ready": null, "no_gate": true, "prompt_hash": "e26983a85620a796", "reason": "gate disabled by --no-gate", "rule_ready": true, "scene_id": "texture_drop", "video_ready": true}
+{"file": "bottle_turn_01.png", "image_id": "img_bottle_01", "manual_ready": null, "no_gate": true, "prompt_hash": "7d62897044624c6a", "reason": "gate disabled by --no-gate", "rule_ready": true, "scene_id": "bottle_turn", "video_ready": true}
+{"file": "skin_light_01.png", "image_id": "img_skin_01", "manual_ready": null, "no_gate": true, "prompt_hash": "3a14c426becdc214", "reason": "gate disabled by --no-gate", "rule_ready": true, "scene_id": "skin_light", "video_ready": true}

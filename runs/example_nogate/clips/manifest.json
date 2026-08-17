@@ -1,0 +1,28 @@
+{
+  "clips": [
+    {
+      "aspect_ratio": "9:16",
+      "clip_id": "clip_texture_01",
+      "duration_seconds": 5,
+      "file": "clip_texture_01.mp4",
+      "image_id": "img_texture_01",
+      "resolution": "1080x1920"
+    },
+    {
+      "aspect_ratio": "9:16",
+      "clip_id": "clip_bottle_01",
+      "duration_seconds": 5,
+      "file": "clip_bottle_01.mp4",
+      "image_id": "img_bottle_01",
+      "resolution": "1080x1920"
+    },
+    {
+      "aspect_ratio": "9:16",
+      "clip_id": "clip_skin_01",
+      "duration_seconds": 5,
+      "file": "clip_skin_01.mp4",
+      "image_id": "img_skin_01",
+      "resolution": "1080x1920"
+    }
+  ]
+}

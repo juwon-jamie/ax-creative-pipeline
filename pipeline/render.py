@@ -82,17 +82,33 @@ def render_clips(
     gate_path: Path,
     video_model: VideoModel,
     output_dir: Path,
+    plan_path: Path | None = None,
 ) -> list[Path]:
     """Render clips from accepted images and return clip paths."""
+    scenes = _load_plan_motion_prompts(plan_path) if plan_path else {}
     output_dir.mkdir(parents=True, exist_ok=True)
     rendered: list[Path] = []
+    manifest_entries: list[dict[str, object]] = []
     for row in read_jsonl(gate_path):
         if not row.get("video_ready"):
             continue
+        scene = scenes.get(str(row.get("scene_id", "")), {})
+        motion_prompt = str(scene.get("motion_prompt") or row.get("motion_prompt") or "")
         clip = video_model.render(
             image_path=Path(str(row["file"])),
-            motion_prompt=str(row.get("motion_prompt", "")),
+            motion_prompt=motion_prompt,
             output_dir=output_dir,
         )
         rendered.append(clip)
+        manifest_entries.append(
+            {
+                "clip_id": clip.stem,
+                "image_id": row["image_id"],
+                "file": clip.name,
+                "duration_seconds": scene.get("duration_seconds"),
+                "aspect_ratio": scene.get("aspect_ratio"),
+                "resolution": scene.get("resolution"),
+            }
+        )
+    write_json(output_dir / "manifest.json", {"clips": manifest_entries})
     return rendered

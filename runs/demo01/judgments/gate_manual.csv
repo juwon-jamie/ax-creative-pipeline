@@ -1,0 +1,7 @@
+image_id,video_ready,reason
+img_texture_drop_01,N,multi-panel storyboard (3 frames) — prompt start/end-state wording rendered as panels; not a single continuous frame
+img_texture_drop_02,Y,single macro frame; viscous drop with clear motion affordance
+img_bottle_turn_01,Y,single product frame; blank label; turn affordance ok
+img_bottle_turn_02,Y,single frame; frosted glass deviates from brand "clear glass" cue but video-ready
+img_skin_light_01,N,multi-panel storyboard (3 frames)
+img_skin_light_02,N,multi-panel storyboard (3 frames)

@@ -2,47 +2,69 @@
 
 Clean-room miniature of an AI creative production pipeline for a fictional Brand Zero campaign.
 
-| 증명한다 | 증명하지 않는다 |
+This repository is unrelated to any employer codebase, client asset, private prompt, production model configuration, or internal operating document. It is a reduced-scale implementation designed to show the method, not any proprietary system.
+
+## What This Proves / Does Not
+
+| Proves | Does not prove |
 |---|---|
-| 방법론(생성 -> 영상화 가능성 게이트 -> 렌더 -> 실패 분류 -> 월별 집계)을 재현 가능한 코드로 쓸 수 있다 | 회사에서의 4% -> 32% 수치 |
-| "사용 가능" 판정이 문서화된 기준(`criteria/usability_v1.md`)으로 돌아간다 | 회사 시스템의 규모(18단계, 9채널) |
-| 다른 조직과 다른 브랜드에 이식할 수 있다. 브랜드 설정 파일 하나를 바꾸면 돈다 | 대규모 처리 성능 |
-| 개인 계정에 공개 가능한 2026-08~09 활동 기록이 생긴다 | 회사 코드나 회사 자산의 공개 |
+| A creative pipeline can be represented as reproducible code: plan -> image -> gate -> render -> evaluate -> aggregate. | Any private production result or internal conversion number. |
+| "Usable clip" can be scored against documented criteria in `criteria/usability_v1.md`. | The scale, vendor choices, cost model, or architecture of any private system. |
+| The workflow is portable: swap one brand YAML, one brief YAML, and one adapter. | Large-scale throughput. |
+| Retry and evaluation policy are explicit enough for review and benchmark comparison. | That generated sample media is production media. No media is committed. |
 
-This repository is unrelated to any employer codebase, client asset, private prompt, production model configuration, or internal operating document. It is a clean-room, reduced-scale implementation designed to show the method, not the proprietary system.
-
-## What Runs
+## Architecture
 
 ```text
 brand/brand_zero.yaml + briefs/campaign_01.yaml
-  -> pipeline.plan
-  -> pipeline.generate  (request files, then manifest ingest)
-  -> pipeline.gate
-  -> pipeline.render    (request files, then manifest ingest)
-  -> pipeline.judge     (manual usability CSV -> JSONL)
-  -> pipeline.aggregate
+  -> pipeline.plan       scene cards and prompt hashes
+  -> pipeline.generate   manual request/ingest or direct adapter
+  -> pipeline.gate       rules + manual video-readiness gate
+  -> pipeline.render     manual request/ingest or direct adapter
+  -> pipeline.judge      manual usability CSV -> judge.jsonl
+  -> pipeline.evaluate   rules + optional VLM JSONL + human CSV -> final verdicts
+  -> pipeline.retry      F1-F7 policy -> attempts.jsonl
+  -> pipeline.aggregate  summary.md and benchmark.md
 ```
 
-The current W2 pass is file-based. It does not call a vendor SDK or require an API key. Generate images with any model, drop the results into `runs/<id>/images/`, and record `manifest.json`. Render works the same way through `runs/<id>/requests/videos/` and `runs/<id>/clips/manifest.json`.
+Adapters live behind a small interface:
 
-## 30-Second Setup
+- `AX_PIPELINE_VENDOR=manual` writes request files and ingests manifests.
+- `AX_PIPELINE_VENDOR=http_generic` POSTs JSON to `IMAGE_MODEL_URL` or `VIDEO_MODEL_URL`, then saves a returned URL or base64 artifact.
+- Field mappings are in `adapters/vendors/mapping.yaml`.
+- Real keys belong only in `.env`; `.env.example` lists names only.
+
+The evaluation harness has three inputs. Rule checks validate manifest coherence and declared specs. A VLM slot can provide JSONL shaped by `criteria/judge_prompt.md`. Human CSV remains the highest-priority source for the final verdict. Agreement reports use simple agreement and Cohen's kappa.
+
+## Run in 60 Seconds
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements.txt pytest ruff
 python -m pytest
-```
-
-No API key is required for the local checks. Real keys belong only in `.env`, never in git.
-
-Run the committed no-media example:
-
-```bash
+python -m ruff check .
 python run.py --run-id example --stage aggregate
 ```
 
-Start a new run:
+On Windows PowerShell:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt pytest ruff
+python -m pytest
+python -m ruff check .
+python run.py --run-id example --stage aggregate
+```
+
+Run the committed no-media benchmark:
+
+```bash
+python run.py --run-id example --stage aggregate --compare-runs example,example_nogate
+```
+
+## Manual Workflow
 
 ```bash
 python run.py --brief briefs/campaign_01.yaml --run-id demo01 --stage plan
@@ -53,13 +75,42 @@ python run.py --run-id demo01 --stage gate
 python run.py --run-id demo01 --stage render --mode request
 # Render clips with any model, then write runs/demo01/clips/manifest.json.
 python run.py --run-id demo01 --stage render --mode ingest
-python run.py --run-id demo01 --stage judge
+python run.py --run-id demo01 --stage judge --resume
+python run.py --run-id demo01 --stage evaluate --resume
 python run.py --run-id demo01 --stage aggregate
 ```
+
+`--resume` reuses completed stage outputs when present. For `judge` and `evaluate`, it also records retryable F1-F7 failures in `runs/<id>/attempts.jsonl` according to `policies/retry.yaml`.
+
+## Direct HTTP Adapter
+
+```bash
+AX_PIPELINE_VENDOR=http_generic python run.py --run-id demo01 --stage generate --mode direct
+AX_PIPELINE_VENDOR=http_generic python run.py --run-id demo01 --stage render --mode direct
+```
+
+The generic HTTP adapter expects JSON responses containing a mapped URL or base64 field. It does not name or depend on any specific vendor SDK.
+
+
+## Real-media run: `runs/demo01/` (2026-08-17)
+
+First pass with real image and video models (vendors abstracted behind the adapters; 64.5 credits total).
+
+| generated_images | gate_pass | render_attempts | usable_clips | conversion (usable / generated) |
+|---:|---:|---:|---:|---:|
+| 6 | 3 | 3 | 2 | 33.3% |
+
+**What the gate caught, unstaged:** 3 of 6 images came back as 3-panel storyboards because the image prompt
+carried "Start state ... End state ..." wording. The gate rejected them (`runs/demo01/judgments/gate_manual.csv`),
+and the learning loop turned that into a template fix in `pipeline/plan.py` (image prompt = one frame, start state
+only; end state lives in the video prompt) with a regression test. Small previews of every frame and clip are in
+`runs/demo01/media_small/`; notes in `runs/demo01/RUN_NOTES.md`. Full-size media stays out of git.
+
+Compare runs: `python run.py --run-id demo01 --stage aggregate --compare-runs demo01,example,example_nogate` -> `reports/benchmark.md`.
 
 ## Design Boundary
 
 - No company code.
 - No real brand, account, patient, campaign, path, or model/API name.
 - No generated production media in the repository.
-- `runs/example/` is the only committed run directory; other runs are ignored.
+- `runs/example/` and `runs/example_nogate/` are committed no-media runs; other runs are ignored.

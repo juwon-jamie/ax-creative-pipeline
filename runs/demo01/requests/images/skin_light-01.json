@@ -1,0 +1,11 @@
+{
+  "aspect_ratio": "9:16",
+  "candidate_id": "skin_light-01",
+  "prompt": "Fictional unbranded skincare ampoule scene. Subject: abstract skin texture and light. Motion cue: soft light sweep across texture. Camera: extreme close-up. Start state: matte texture. End state: hydrated reflective texture. No real logo, no real package silhouette, no medical efficacy claim.",
+  "prompt_hash": "3a14c426becdc214",
+  "reference_images": [],
+  "request_type": "image",
+  "resolution": "1080x1920",
+  "scene_id": "skin_light",
+  "status": "pending_external_generation"
+}

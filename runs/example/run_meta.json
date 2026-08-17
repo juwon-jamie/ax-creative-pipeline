@@ -1,0 +1,4 @@
+{
+  "adapter": "manual",
+  "retry_policy": "retry.yaml"
+}

@@ -1,0 +1,4 @@
+clip_id,verdict,fail_codes,pass_fail_codes,p7_reason
+clip_01,USABLE,,,
+clip_02,NOT_USABLE,,P1;P5,bottle does not turn - only a highlight arc sweeps; a still with a moving light
+clip_03,USABLE,,,
