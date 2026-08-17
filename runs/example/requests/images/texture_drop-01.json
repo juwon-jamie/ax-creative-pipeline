@@ -1,0 +1,11 @@
+{
+  "aspect_ratio": "9:16",
+  "candidate_id": "texture_drop-01",
+  "prompt": "Fictional unbranded skincare ampoule scene. Subject: ampoule drop on glass surface. Motion cue: slow macro slide with visible viscosity. Camera: macro close-up, shallow depth. Start state: drop suspended above surface. End state: drop spreads into reflective film. No real logo, no real package silhouette, no medical efficacy claim.",
+  "prompt_hash": "e26983a85620a796",
+  "reference_images": [],
+  "request_type": "image",
+  "resolution": "1080x1920",
+  "scene_id": "texture_drop",
+  "status": "pending_external_generation"
+}

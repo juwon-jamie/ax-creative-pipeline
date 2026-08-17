@@ -9,6 +9,11 @@ from typing import Protocol
 class ImageModel(Protocol):
     """Generate candidate images for a scene card."""
 
-    def generate(self, prompt: str, reference_images: list[Path], output_dir: Path) -> list[Path]:
+    def generate(
+        self,
+        prompt: str,
+        reference_images: list[Path],
+        output_dir: Path,
+    ) -> list[Path]:
         """Return generated image paths."""
         raise NotImplementedError

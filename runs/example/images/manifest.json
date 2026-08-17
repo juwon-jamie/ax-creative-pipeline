@@ -1,0 +1,22 @@
+{
+  "images": [
+    {
+      "file": "texture_drop_01.png",
+      "image_id": "img_texture_01",
+      "prompt_hash": "e26983a85620a796",
+      "scene_id": "texture_drop"
+    },
+    {
+      "file": "bottle_turn_01.png",
+      "image_id": "img_bottle_01",
+      "prompt_hash": "7d62897044624c6a",
+      "scene_id": "bottle_turn"
+    },
+    {
+      "file": "skin_light_01.png",
+      "image_id": "img_skin_01",
+      "prompt_hash": "3a14c426becdc214",
+      "scene_id": "skin_light"
+    }
+  ]
+}

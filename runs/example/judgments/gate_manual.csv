@@ -1,0 +1,4 @@
+image_id,video_ready,reason
+img_texture_01,Y,structured motion and product-safe frame
+img_bottle_01,Y,clean bottle silhouette
+img_skin_01,N,unclear product presence

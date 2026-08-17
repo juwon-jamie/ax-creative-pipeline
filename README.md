@@ -16,29 +16,50 @@ This repository is unrelated to any employer codebase, client asset, private pro
 ```text
 brand/brand_zero.yaml + briefs/campaign_01.yaml
   -> pipeline.plan
-  -> pipeline.generate
+  -> pipeline.generate  (request files, then manifest ingest)
   -> pipeline.gate
-  -> pipeline.render
-  -> pipeline.judge
+  -> pipeline.render    (request files, then manifest ingest)
+  -> pipeline.judge     (manual usability CSV -> JSONL)
   -> pipeline.aggregate
 ```
 
-The current W1 skeleton contains interfaces, stubs, criteria, one rule test, and CI configuration. Vendor adapters are intentionally empty until the user approves model choices and cost limits.
+The current W2 pass is file-based. It does not call a vendor SDK or require an API key. Generate images with any model, drop the results into `runs/<id>/images/`, and record `manifest.json`. Render works the same way through `runs/<id>/requests/videos/` and `runs/<id>/clips/manifest.json`.
 
 ## 30-Second Setup
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate
-pip install ruff pytest
-pytest
+python -m pip install -r requirements.txt pytest ruff
+python -m pytest
 ```
 
-No API key is required for the current skeleton. Real keys belong only in `.env`, never in git.
+No API key is required for the local checks. Real keys belong only in `.env`, never in git.
+
+Run the committed no-media example:
+
+```bash
+python run.py --run-id example --stage aggregate
+```
+
+Start a new run:
+
+```bash
+python run.py --brief briefs/campaign_01.yaml --run-id demo01 --stage plan
+python run.py --run-id demo01 --stage generate --mode request
+# Generate images with any model, then write runs/demo01/images/manifest.json.
+python run.py --run-id demo01 --stage generate --mode ingest
+python run.py --run-id demo01 --stage gate
+python run.py --run-id demo01 --stage render --mode request
+# Render clips with any model, then write runs/demo01/clips/manifest.json.
+python run.py --run-id demo01 --stage render --mode ingest
+python run.py --run-id demo01 --stage judge
+python run.py --run-id demo01 --stage aggregate
+```
 
 ## Design Boundary
 
 - No company code.
 - No real brand, account, patient, campaign, path, or model/API name.
-- No generated production media in the first skeleton commit.
+- No generated production media in the repository.
 - `runs/example/` is the only committed run directory; other runs are ignored.

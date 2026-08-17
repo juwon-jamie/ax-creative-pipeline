@@ -1,0 +1,58 @@
+{
+  "brand_id": "brand_zero",
+  "brand_name": "Brand Zero",
+  "brief_id": "campaign_01",
+  "objective": "show serum texture and product clarity in three short-form clips",
+  "scene_count": 3,
+  "scenes": [
+    {
+      "aspect_ratio": "9:16",
+      "camera": "macro close-up, shallow depth",
+      "duration_seconds": 5,
+      "end_state": "drop spreads into reflective film",
+      "forbidden_hits": [],
+      "image_prompt": "Fictional unbranded skincare ampoule scene. Subject: ampoule drop on glass surface. Motion cue: slow macro slide with visible viscosity. Camera: macro close-up, shallow depth. Start state: drop suspended above surface. End state: drop spreads into reflective film. No real logo, no real package silhouette, no medical efficacy claim.",
+      "image_prompt_hash": "e26983a85620a796",
+      "motion": "slow macro slide with visible viscosity",
+      "motion_prompt": "Create a 5 second vertical clip: slow macro slide with visible viscosity. Start with drop suspended above surface and end with drop spreads into reflective film.",
+      "resolution": "1080x1920",
+      "scene_id": "texture_drop",
+      "start_state": "drop suspended above surface",
+      "subject": "ampoule drop on glass surface"
+    },
+    {
+      "aspect_ratio": "9:16",
+      "camera": "product close-up",
+      "duration_seconds": 5,
+      "end_state": "bottle facing three-quarter right",
+      "forbidden_hits": [],
+      "image_prompt": "Fictional unbranded skincare ampoule scene. Subject: unbranded glass ampoule bottle. Motion cue: slow turn with highlight sweep. Camera: product close-up. Start state: bottle facing three-quarter left. End state: bottle facing three-quarter right. No real logo, no real package silhouette, no medical efficacy claim.",
+      "image_prompt_hash": "7d62897044624c6a",
+      "motion": "slow turn with highlight sweep",
+      "motion_prompt": "Create a 5 second vertical clip: slow turn with highlight sweep. Start with bottle facing three-quarter left and end with bottle facing three-quarter right.",
+      "resolution": "1080x1920",
+      "scene_id": "bottle_turn",
+      "start_state": "bottle facing three-quarter left",
+      "subject": "unbranded glass ampoule bottle"
+    },
+    {
+      "aspect_ratio": "9:16",
+      "camera": "extreme close-up",
+      "duration_seconds": 5,
+      "end_state": "hydrated reflective texture",
+      "forbidden_hits": [],
+      "image_prompt": "Fictional unbranded skincare ampoule scene. Subject: abstract skin texture and light. Motion cue: soft light sweep across texture. Camera: extreme close-up. Start state: matte texture. End state: hydrated reflective texture. No real logo, no real package silhouette, no medical efficacy claim.",
+      "image_prompt_hash": "3a14c426becdc214",
+      "motion": "soft light sweep across texture",
+      "motion_prompt": "Create a 5 second vertical clip: soft light sweep across texture. Start with matte texture and end with hydrated reflective texture.",
+      "resolution": "1080x1920",
+      "scene_id": "skin_light",
+      "start_state": "matte texture",
+      "subject": "abstract skin texture and light"
+    }
+  ],
+  "source": {
+    "brand": "brand/brand_zero.yaml",
+    "brief": "briefs/campaign_01.yaml"
+  }
+}

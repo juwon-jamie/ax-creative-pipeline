@@ -1,0 +1,11 @@
+{
+  "aspect_ratio": "9:16",
+  "candidate_id": "bottle_turn-01",
+  "prompt": "Fictional unbranded skincare ampoule scene. Subject: unbranded glass ampoule bottle. Motion cue: slow turn with highlight sweep. Camera: product close-up. Start state: bottle facing three-quarter left. End state: bottle facing three-quarter right. No real logo, no real package silhouette, no medical efficacy claim.",
+  "prompt_hash": "7d62897044624c6a",
+  "reference_images": [],
+  "request_type": "image",
+  "resolution": "1080x1920",
+  "scene_id": "bottle_turn",
+  "status": "pending_external_generation"
+}

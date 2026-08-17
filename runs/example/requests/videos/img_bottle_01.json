@@ -1,0 +1,11 @@
+{
+  "aspect_ratio": "9:16",
+  "duration_seconds": 5,
+  "image_id": "img_bottle_01",
+  "motion_prompt": "Create a 5 second vertical clip: slow turn with highlight sweep. Start with bottle facing three-quarter left and end with bottle facing three-quarter right.",
+  "prompt_hash": "5f1d9408e9fdcd14",
+  "request_type": "video",
+  "scene_id": "bottle_turn",
+  "source_image": "bottle_turn_01.png",
+  "status": "pending_external_render"
+}

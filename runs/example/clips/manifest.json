@@ -1,0 +1,14 @@
+{
+  "clips": [
+    {
+      "clip_id": "clip_texture_01",
+      "file": "clip_texture_01.mp4",
+      "image_id": "img_texture_01"
+    },
+    {
+      "clip_id": "clip_bottle_01",
+      "file": "clip_bottle_01.mp4",
+      "image_id": "img_bottle_01"
+    }
+  ]
+}

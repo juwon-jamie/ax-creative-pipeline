@@ -1,0 +1,3 @@
+{"file": "texture_drop_01.png", "image_id": "img_texture_01", "manual_ready": true, "no_gate": false, "prompt_hash": "e26983a85620a796", "reason": "structured motion and product-safe frame", "rule_ready": true, "scene_id": "texture_drop", "video_ready": true}
+{"file": "bottle_turn_01.png", "image_id": "img_bottle_01", "manual_ready": true, "no_gate": false, "prompt_hash": "7d62897044624c6a", "reason": "clean bottle silhouette", "rule_ready": true, "scene_id": "bottle_turn", "video_ready": true}
+{"file": "skin_light_01.png", "image_id": "img_skin_01", "manual_ready": false, "no_gate": false, "prompt_hash": "3a14c426becdc214", "reason": "unclear product presence", "rule_ready": true, "scene_id": "skin_light", "video_ready": false}
