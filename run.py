@@ -3,9 +3,11 @@
 from __future__ import annotations
 
 import argparse
+import json
 from pathlib import Path
 
 from adapters.factory import build_image_model, build_video_model
+from agent.orchestrator import AgentConfig, run_agent
 from pipeline.aggregate import aggregate_benchmark, aggregate_run
 from pipeline.common import read_jsonl
 from pipeline.evaluate import evaluate_run
@@ -34,6 +36,7 @@ def parse_args() -> argparse.Namespace:
             "judge",
             "evaluate",
             "aggregate",
+            "agent",
         ],
     )
     parser.add_argument(
@@ -46,6 +49,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--policy", default="policies/retry.yaml")
     parser.add_argument("--compare-runs", default="")
     parser.add_argument("--candidates-per-scene", type=int, default=1)
+    parser.add_argument("--target-usable", type=int, default=3)
+    parser.add_argument("--max-attempts", type=int, default=12)
     return parser.parse_args()
 
 
@@ -172,6 +177,23 @@ def main() -> int:
             return 0
         path = aggregate_run(run_dir, Path("reports") / "summary.md")
         print(path.as_posix())
+        return 0
+
+    if args.stage == "agent":
+        result = run_agent(
+            AgentConfig(
+                brand_path=Path(args.brand),
+                brief_path=Path(args.brief),
+                run_id=args.run_id,
+                target_usable=args.target_usable,
+                max_attempts=args.max_attempts,
+                policy_path=Path(args.policy),
+                candidates_per_scene=args.candidates_per_scene,
+                no_gate=args.no_gate,
+                resume=args.resume,
+            )
+        )
+        print(json.dumps(result, ensure_ascii=False, sort_keys=True))
         return 0
 
     raise AssertionError(f"unknown stage: {args.stage}")

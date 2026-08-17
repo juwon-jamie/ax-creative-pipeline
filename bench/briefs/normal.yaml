@@ -1,0 +1,9 @@
+brief:
+  id: bench_normal
+  difficulty: normal
+  objective: Mixed motion and spec pressure across three product scenes.
+  traps:
+    - physics drift
+    - weak motion
+  expected_policy_pressure: gate plus retry improves one scene
+

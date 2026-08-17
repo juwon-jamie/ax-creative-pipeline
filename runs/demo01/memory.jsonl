@@ -1,0 +1,36 @@
+{"event": "agent_started", "max_attempts": 12, "target_usable": 3}
+{"attempt_no": 1, "event": "attempt_started"}
+{"event": "plan_reused", "path": "runs/demo01/plan.json"}
+{"event": "images_ingested", "path": "runs/demo01/images/manifest.json"}
+{"event": "gate_reused", "path": "runs/demo01/gate.jsonl"}
+{"event": "clips_ingested", "path": "runs/demo01/clips/manifest.json"}
+{"event": "judge_reused", "path": "runs/demo01/judge.jsonl"}
+{"event": "evaluate_reused", "path": "runs/demo01/evaluate.jsonl"}
+{"event": "retry_policy_applied", "failure_count": 0, "path": "runs/demo01/attempts.jsonl"}
+{"event": "aggregate_written", "path": "reports/summary.md"}
+{"attempt_no": 1, "event": "attempt_completed", "target_met": false, "usable_clips": 2}
+{"attempt_no": 1, "event": "agent_finished", "status": "target_not_met_resume_reused_outputs"}
+{"event": "agent_started", "max_attempts": 12, "target_usable": 3}
+{"attempt_no": 1, "event": "attempt_started"}
+{"event": "plan_reused", "path": "runs/demo01/plan.json"}
+{"event": "images_ingested", "path": "runs/demo01/images/manifest.json"}
+{"event": "gate_reused", "path": "runs/demo01/gate.jsonl"}
+{"event": "clips_ingested", "path": "runs/demo01/clips/manifest.json"}
+{"event": "judge_reused", "path": "runs/demo01/judge.jsonl"}
+{"event": "evaluate_reused", "path": "runs/demo01/evaluate.jsonl"}
+{"event": "retry_policy_applied", "failure_count": 0, "path": "runs/demo01/attempts.jsonl"}
+{"event": "aggregate_written", "path": "reports/summary.md"}
+{"attempt_no": 1, "event": "attempt_completed", "target_met": false, "usable_clips": 2}
+{"attempt_no": 1, "event": "agent_finished", "status": "target_not_met_resume_reused_outputs"}
+{"event": "agent_started", "max_attempts": 12, "target_usable": 3}
+{"attempt_no": 1, "event": "attempt_started"}
+{"event": "plan_reused", "path": "runs/demo01/plan.json"}
+{"event": "images_ingested", "path": "runs/demo01/images/manifest.json"}
+{"event": "gate_reused", "path": "runs/demo01/gate.jsonl"}
+{"event": "clips_ingested", "path": "runs/demo01/clips/manifest.json"}
+{"event": "judge_reused", "path": "runs/demo01/judge.jsonl"}
+{"event": "evaluate_reused", "path": "runs/demo01/evaluate.jsonl"}
+{"event": "retry_policy_applied", "failure_count": 0, "path": "runs/demo01/attempts.jsonl"}
+{"event": "aggregate_written", "path": "reports/summary.md"}
+{"attempt_no": 1, "event": "attempt_completed", "target_met": false, "usable_clips": 2}
+{"attempt_no": 1, "event": "agent_finished", "status": "target_not_met_resume_reused_outputs"}

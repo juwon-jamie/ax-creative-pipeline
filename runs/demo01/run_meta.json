@@ -1,0 +1,8 @@
+{
+  "adapter": "agent",
+  "agent_status": "target_not_met_resume_reused_outputs",
+  "attempt_no": 1,
+  "max_attempts": 12,
+  "retry_policy": "retry.yaml",
+  "target_usable": 3
+}

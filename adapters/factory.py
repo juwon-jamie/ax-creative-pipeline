@@ -7,6 +7,7 @@ from pathlib import Path
 from adapters.image_model import ImageModel
 from adapters.judge import Judge
 from adapters.vendors.http_generic import HttpGenericImageModel, HttpGenericVideoModel
+from adapters.vendors.llm_http import LlmHttpJudge
 from adapters.vendors.manual import ManualImageModel, ManualJudge, ManualVideoModel
 from adapters.video_model import VideoModel
 from pipeline.common import load_env
@@ -46,4 +47,6 @@ def build_judge(env_path: Path | None = None) -> Judge:
     vendor = selected_vendor(env)
     if vendor in {"manual", "http_generic"}:
         return ManualJudge()
+    if vendor == "llm_http":
+        return LlmHttpJudge(env=env)
     raise ValueError(f"unsupported AX_PIPELINE_VENDOR: {vendor}")

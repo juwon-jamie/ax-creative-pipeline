@@ -1,0 +1,7 @@
+brief:
+  id: bench_easy
+  difficulty: easy
+  objective: Simple texture and bottle motion with low ambiguity.
+  traps: []
+  expected_policy_pressure: minimal
+

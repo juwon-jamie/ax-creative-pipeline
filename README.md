@@ -25,6 +25,7 @@ brand/brand_zero.yaml + briefs/campaign_01.yaml
   -> pipeline.evaluate   rules + optional VLM JSONL + human CSV -> final verdicts
   -> pipeline.retry      F1-F7 policy -> attempts.jsonl
   -> pipeline.aggregate  summary.md and benchmark.md
+  -> agent.orchestrator  planner + memory + tools + loop + evaluator
 ```
 
 Adapters live behind a small interface:
@@ -36,6 +37,8 @@ Adapters live behind a small interface:
 
 The evaluation harness has three inputs. Rule checks validate manifest coherence and declared specs. A VLM slot can provide JSONL shaped by `criteria/judge_prompt.md`. Human CSV remains the highest-priority source for the final verdict. Agreement reports use simple agreement and Cohen's kappa.
 
+Agent mode wraps the same stages with explicit Planner, Memory, Tools, Loop, and Evaluator components. It records decisions in `runs/<id>/memory.jsonl`, stops cleanly when external media is needed, and runs with `python run.py --run-id demo01 --stage agent --target-usable 3 --max-attempts 12 --resume`.
+
 ## Run in 60 Seconds
 
 ```bash
@@ -44,6 +47,7 @@ source .venv/bin/activate
 python -m pip install -r requirements.txt pytest ruff
 python -m pytest
 python -m ruff check .
+python -m bench.run
 python run.py --run-id example --stage aggregate
 ```
 
@@ -55,6 +59,7 @@ python -m venv .venv
 python -m pip install -r requirements.txt pytest ruff
 python -m pytest
 python -m ruff check .
+python -m bench.run
 python run.py --run-id example --stage aggregate
 ```
 

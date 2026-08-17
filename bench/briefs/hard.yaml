@@ -1,0 +1,10 @@
+brief:
+  id: bench_hard
+  difficulty: hard
+  objective: Logo-like mark trap plus unstable physics and shape risk.
+  traps:
+    - logo-like mark
+    - unstable physics
+    - shape melt
+  expected_policy_pressure: gate removes brand-risk scene before render
+
